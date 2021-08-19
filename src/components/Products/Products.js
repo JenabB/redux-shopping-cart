@@ -4,8 +4,8 @@ import Product from "./Product/Product";
 
 const Products = ({ products }) => {
   return (
-    <div className="w-3/4 mx-auto my-10">
-      <div className="grid grid-cols-3">
+    <div className="lg:w-3/4 mx-auto my-10">
+      <div className="grid lg:grid-cols-3 grid-cols-2">
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}

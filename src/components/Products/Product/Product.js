@@ -9,18 +9,25 @@ import {
 const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
     <div className="m-3">
-      <div>
+      <div className="shadow-lg">
         <img src={product.image} alt={product.title} />
 
-        <div className="detail">
+        <div className="p-4">
           <p>{product.title}</p>
           <p>{product.description}</p>
-          <p>{product.price}</p>
+          <p className="bg-blue-400 inline-block px-3 rounded-lg mt-4 text-white">
+            Rp. {product.price}
+          </p>
         </div>
 
-        <div>
+        <div className="p-4">
           <Link to={`/product/${product.id}`}>
-            <button onClick={() => loadCurrentItem(product)}>View Item</button>
+            <button
+              className="bg-black text-white p-2 rounded-xl mr-4"
+              onClick={() => loadCurrentItem(product)}
+            >
+              View Item
+            </button>
           </Link>
           <button onClick={() => addToCart(product.id)}>Add To Cart</button>
         </div>
