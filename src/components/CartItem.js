@@ -13,18 +13,24 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
   };
 
   return (
-    <div className="lg:m-4 m-2">
-      <img src={item.image} alt={item.title} />
+    <div className="lg:m-4 m-2 shadow-lg rounded-lg">
+      <img
+        className="rounded-t-lg"
+        style={{ height: "300px", width: "100%", objectFit: "cover" }}
+        src={item.image}
+        alt={item.title}
+      />
 
-      <div>
-        <p className="">{item.title}</p>
+      <div className="p-4">
+        <p className="font-bold mb-2">{item.title}</p>
         <p className="line-clamp-2">{item.description}</p>
         <p className="text-blue-400 font-bold">{formatRp(item.price)}</p>
       </div>
 
-      <div>
+      <div className="px-4">
         <label htmlFor="quantity">Quantity</label>
         <input
+          className="bg-gray-200 ml-4 w-2/4 pl-2 rounded-lg"
           min="1"
           type="number"
           id="quantity"
@@ -34,7 +40,14 @@ const CartItem = ({ item, adjustQty, removeFromCart }) => {
         />
       </div>
 
-      <button onClick={() => removeFromCart(item.id)}></button>
+      <div className="p-4">
+        <button
+          className="bg-red-600 text-white py-1 px-2 rounded-lg"
+          onClick={() => removeFromCart(item.id)}
+        >
+          Remove
+        </button>
+      </div>
     </div>
   );
 };
@@ -46,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapDispatchToProps)(CartItem);
+export default connect(null, mapDispatchToProps)(CartItem);

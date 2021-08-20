@@ -15,7 +15,12 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
     <div className="m-3">
       <div className="shadow-lg rounded-lg">
-        <img className="rounded-t-lg" src={product.image} alt={product.title} />
+        <img
+          className="rounded-t-lg"
+          style={{ height: "300px", width: "100%", objectFit: "cover" }}
+          src={product.image}
+          alt={product.title}
+        />
 
         <div className="p-4">
           <p className="font-bold mb-2">{product.title}</p>

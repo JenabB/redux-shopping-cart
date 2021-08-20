@@ -30,13 +30,17 @@ const Cart = ({ cart }) => {
       </div>
 
       <div className="lg:m-10 m-4 lg:w-1/4">
-        <h1 className="bg-gray-400">Cart Summary</h1>
-        <div>
-          <span>Total: {totalItems} items</span>
-          <span>{formatRp(totalPrice)}</span>
+        <h1 className="bg-gray-400 text-white rounded-lg px-4 py-2">
+          Cart Summary
+        </h1>
+        <div className="p-4">
+          <h1>Total: {totalItems} items</h1>
+          <h2>{formatRp(totalPrice)}</h2>
         </div>
 
-        <button>Process To Checkout</button>
+        <button className="bg-gray-500 px-4 py-2 rounded-lg text-white">
+          Process To Checkout
+        </button>
       </div>
     </div>
   );
