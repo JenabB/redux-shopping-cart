@@ -1,22 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
+//redux actions
 import {
   loadCurrentItem,
   addToCart,
 } from "../../../redux/Shopping/shopping-actions";
 
+//utils
+import { formatRp } from "../../../utils/formatRp";
+
 const Product = ({ product, addToCart, loadCurrentItem }) => {
   return (
     <div className="m-3">
-      <div className="shadow-lg">
-        <img src={product.image} alt={product.title} />
+      <div className="shadow-lg rounded-lg">
+        <img className="rounded-t-lg" src={product.image} alt={product.title} />
 
         <div className="p-4">
-          <p>{product.title}</p>
-          <p>{product.description}</p>
-          <p className="bg-blue-400 inline-block px-3 rounded-lg mt-4 text-white">
-            Rp. {product.price}
+          <p className="font-bold mb-2">{product.title}</p>
+          <p className="line-clamp-2">{product.description}</p>
+          <p className="text-blue-400 font-bold inline-block px-3 mt-4">
+            {formatRp(product.price)}
           </p>
         </div>
 

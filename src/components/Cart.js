@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import CartItem from "./CartItem";
 
+import { formatRp } from "../utils/formatRp";
+
 const Cart = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
@@ -20,17 +22,18 @@ const Cart = ({ cart }) => {
   }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
 
   return (
-    <div>
-      <div>
+    <div className="lg:flex">
+      <div className="grid lg:w-3/4 lg:grid-cols-3 grid-cols-2 m-10">
         {cart.map((item) => (
           <CartItem key={item.id} item={item} />
         ))}
       </div>
-      <div>
-        <h1>Cart Summary</h1>
+
+      <div className="lg:m-10 m-4 lg:w-1/4">
+        <h1 className="bg-gray-400">Cart Summary</h1>
         <div>
           <span>Total: {totalItems} items</span>
-          <span>{totalPrice}</span>
+          <span>{formatRp(totalPrice)}</span>
         </div>
 
         <button>Process To Checkout</button>
