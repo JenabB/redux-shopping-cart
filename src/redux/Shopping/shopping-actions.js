@@ -34,3 +34,28 @@ export const loadCurrentItem = (item) => {
     payload: item,
   };
 };
+
+export const sortProductsByPrice = (item, sort) => {
+  const products = item.slice();
+  if (sort !== "") {
+    products.sort((a, b) =>
+      sort === "lowest"
+        ? a.price > b.price
+          ? 1
+          : -1
+        : a.price < b.price
+        ? 1
+        : -1
+    );
+  } else {
+    products.sort((a, b) => (a.id > b.id ? 1 : -1));
+  }
+
+  return {
+    type: actionTypes.ORDER_PRODUCT_BY_PRICE,
+    payload: {
+      orderedItem: products,
+      sort: sort,
+    },
+  };
+};

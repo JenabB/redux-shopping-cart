@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ cart }) => {
+const Navbar = () => {
   const [cartCount, setCartCount] = useState(0);
+
+  const cart = useSelector((state) => state.shop.cart);
 
   useEffect(() => {
     let count = 0;
@@ -30,10 +32,4 @@ const Navbar = ({ cart }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.shop.cart,
-  };
-};
-
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;

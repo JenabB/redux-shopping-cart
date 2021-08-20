@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   products: products.products,
   cart: [],
   currentItem: null,
+  orderedItem: [],
+  sort: "",
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
@@ -48,6 +50,13 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentItem: action.payload,
+      };
+
+    case actionTypes.ORDER_PRODUCT_BY_PRICE:
+      return {
+        ...state,
+        orderedItem: action.payload.item,
+        sort: action.payload.sort,
       };
 
     default:
